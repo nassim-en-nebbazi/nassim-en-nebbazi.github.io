@@ -1,7 +1,7 @@
 (function () {
   var phrases = {
     en: ["Postdoctoral researcher in Mathematics", "ENS Rennes / Inria Rennes"],
-    fr: ["Chercheur postdoctoral en mathématiques", "ENS Rennes / Inria Rennes"]
+    fr: ["Postdoctorant en mathématiques", "ENS Rennes / Inria Rennes"]
   };
 
   function start() {
