@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enseignement — Nassim En-Nebbazi</title>
+<script src="lang.js"></script>
 <style>
   * {
     margin: 0;
@@ -135,72 +136,35 @@
 <div class="subtitle"><span id="typed">Postdoctoral researcher in Mathematics</span><span class="cursor"></span></div>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="Cursus.html">Education</a>
+  <a href="index.html"><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+  <a href="Cursus.html"><span lang="en">Education</span><span lang="fr">Formation</span></a>
   <a href="Publications.html">Publications</a>
-  <a href="Enseignement.html">Teaching</a>
-  <a href="Divers.html">More</a>
+  <a href="Enseignement.html"><span lang="en">Teaching</span><span lang="fr">Enseignement</span></a>
+  <a href="Divers.html"><span lang="en">More</span><span lang="fr">Divers</span></a>
 </nav>
 
-<h2>Teaching</h2>
+<h2><span lang="en">Teaching</span><span lang="fr">Enseignement</span></h2>
 
 <h3>2025–2026</h3>
 <ul>
-  <li>Lectures & Tutorials — Algebra (L1)</li>
+  <li><span lang="en">Lectures &amp; Tutorials — Algebra (L1)</span><span lang="fr">Cours &amp; travaux dirigés — Algèbre (L1)</span></li>
 </ul>
 
 <h3>2024–2025</h3>
 <ul>
-  <li>Tutorials — Algebra (L1)</li>
-  <li>Tutorials — Analysis (L1)</li>
-  <li>Tutorials — Mathematics for Economists (L1)</li>
+  <li><span lang="en">Tutorials — Algebra (L1)</span><span lang="fr">Travaux dirigés — Algèbre (L1)</span></li>
+  <li><span lang="en">Tutorials — Analysis (L1)</span><span lang="fr">Travaux dirigés — Analyse (L1)</span></li>
+  <li><span lang="en">Tutorials — Mathematics for Economists (L1)</span><span lang="fr">Travaux dirigés — Mathématiques pour économistes (L1)</span></li>
 </ul>
 
 <h3>2023–2024</h3>
 <ul>
-  <li>Tutorials — Probabilities (L2)</li>
+  <li><span lang="en">Tutorials — Probabilities (L2)</span><span lang="fr">Travaux dirigés — Probabilités (L2)</span></li>
 </ul>
 
 <footer>
   © Nassim En-Nebbazi — Université de Pau et des Pays de l’Adour
 </footer>
-
-<script>
-  // Effet machine à écrire du sous-titre
-  const phrases = [
-    "Postdoctoral researcher in Mathematics",
-    "ENS Rennes / Inria Rennes"
-  ];
-
-  const el = document.getElementById('typed');
-
-  // Respecte les utilisateurs qui ont désactivé les animations
-  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let p = 0;                        // index de la phrase courante
-    let i = phrases[0].length;        // nombre de lettres affichées
-    let deleting = true;              // on part du texte déjà affiché : il s'efface d'abord
-
-    function tick() {
-      const full = phrases[p];
-      i += deleting ? -1 : 1;
-      el.textContent = full.slice(0, i);
-
-      let delay = deleting ? 40 : 80; // vitesse d'effacement / d'écriture (ms)
-
-      if (!deleting && i === full.length) {
-        delay = 2000;                 // pause quand la phrase est complète
-        deleting = true;
-      } else if (deleting && i === 0) {
-        deleting = false;
-        p = (p + 1) % phrases.length; // phrase suivante
-        delay = 400;                  // petite pause avant de réécrire
-      }
-      setTimeout(tick, delay);
-    }
-
-    setTimeout(tick, 2000);           // laisse le titre visible 2 s au chargement
-  }
-</script>
 
 </body>
 </html>

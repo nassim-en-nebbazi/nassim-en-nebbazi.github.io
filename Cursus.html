@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cursus — Nassim En-Nebbazi</title>
+<script src="lang.js"></script>
 <style>
   * {
     margin: 0;
@@ -166,36 +167,36 @@
 <div class="subtitle"><span id="typed">Postdoctoral researcher in Mathematics</span><span class="cursor"></span></div>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="Cursus.html">Education</a>
+  <a href="index.html"><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+  <a href="Cursus.html"><span lang="en">Education</span><span lang="fr">Formation</span></a>
   <a href="Publications.html">Publications</a>
-  <a href="Enseignement.html">Teaching</a>
-  <a href="Divers.html">More</a>
+  <a href="Enseignement.html"><span lang="en">Teaching</span><span lang="fr">Enseignement</span></a>
+  <a href="Divers.html"><span lang="en">More</span><span lang="fr">Divers</span></a>
 </nav>
 
-<h2>Education</h2>
+<h2><span lang="en">Education</span><span lang="fr">Formation</span></h2>
 
 <ul class="timeline">
   <li>
-    <div class="year">2023 – Now</div>
+    <div class="year"><span lang="en">2023 – Now</span><span lang="fr">2023 – Aujourd'hui</span></div>
     <div class="degree-title">
-      PhD : <a href="https://theses.fr/s369176">Stochastic methods for numerical optimization under EDP constraints</a>
+      <span lang="en">PhD :</span><span lang="fr">Doctorat :</span> <a href="https://theses.fr/s369176"><span lang="en">Stochastic methods for numerical optimization under EDP constraints</span><span lang="fr">Méthodes stochastiques pour l'optimisation numérique sous contraintes d'EDP</span></a>
     </div>
     <div class="institution">Université de Pau et des Pays de l'Adour</div>
   </li>
 
   <li>
     <div class="year">2021 – 2023</div>
-    <div class="degree-title">Master's degree in fundamental mathematics, Probability</div>
+    <div class="degree-title"><span lang="en">Master's degree in fundamental mathematics, Probability</span><span lang="fr">Master en mathématiques fondamentales, Probabilités</span></div>
     <div class="institution">Université Côte d'Azur</div>
     <ul class="details">
-      <li>Option: Advanced Geometry (Manifolds, Vector Bundles, Riemannian Geometry)</li>
+      <li><span lang="en">Option: Advanced Geometry (Manifolds, Vector Bundles, Riemannian Geometry)</span><span lang="fr">Option : Géométrie avancée (variétés, fibrés vectoriels, géométrie riemannienne)</span></li>
     </ul>
   </li>
 
   <li>
     <div class="year">2021 – 2023</div>
-    <div class="degree-title">Master's degree in Applied Mathematical Engineering, Data Science</div>
+    <div class="degree-title"><span lang="en">Master's degree in Applied Mathematical Engineering, Data Science</span><span lang="fr">Master en ingénierie mathématique appliquée, Science des données</span></div>
     <div class="institution">Université Côte d'Azur</div>
   </li>
 </ul>
@@ -203,43 +204,6 @@
 <footer>
   © Nassim En-Nebbazi — Université de Pau et des Pays de l’Adour
 </footer>
-
-<script>
-  // Effet machine à écrire du sous-titre
-  const phrases = [
-    "Postdoctoral researcher in Mathematics",
-    "ENS Rennes / Inria Rennes"
-  ];
-
-  const el = document.getElementById('typed');
-
-  // Respecte les utilisateurs qui ont désactivé les animations
-  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let p = 0;                        // index de la phrase courante
-    let i = phrases[0].length;        // nombre de lettres affichées
-    let deleting = true;              // on part du texte déjà affiché : il s'efface d'abord
-
-    function tick() {
-      const full = phrases[p];
-      i += deleting ? -1 : 1;
-      el.textContent = full.slice(0, i);
-
-      let delay = deleting ? 40 : 80; // vitesse d'effacement / d'écriture (ms)
-
-      if (!deleting && i === full.length) {
-        delay = 2000;                 // pause quand la phrase est complète
-        deleting = true;
-      } else if (deleting && i === 0) {
-        deleting = false;
-        p = (p + 1) % phrases.length; // phrase suivante
-        delay = 400;                  // petite pause avant de réécrire
-      }
-      setTimeout(tick, delay);
-    }
-
-    setTimeout(tick, 2000);           // laisse le titre visible 2 s au chargement
-  }
-</script>
 
 </body>
 </html>

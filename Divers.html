@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divers — Nassim En-Nebbazi</title>
+<script src="lang.js"></script>
 <style>
   * {
     margin: 0;
@@ -145,87 +146,50 @@
 <div class="subtitle"><span id="typed">Postdoctoral researcher in Mathematics</span><span class="cursor"></span></div>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="Cursus.html">Education</a>
+  <a href="index.html"><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+  <a href="Cursus.html"><span lang="en">Education</span><span lang="fr">Formation</span></a>
   <a href="Publications.html">Publications</a>
-  <a href="Enseignement.html">Teaching</a>
-  <a href="Divers.html">More</a>
+  <a href="Enseignement.html"><span lang="en">Teaching</span><span lang="fr">Enseignement</span></a>
+  <a href="Divers.html"><span lang="en">More</span><span lang="fr">Divers</span></a>
 </nav>
 
-<h2>Responsibilities</h2>
+<h2><span lang="en">Responsibilities</span><span lang="fr">Responsabilités</span></h2>
 <ul>
-  <li>Representative of doctoral students on the laboratory council</li>
-  <li>Organizer of the doctoral student seminar</li>
-  <li>Organizer of doctoral student days for the Nouvelle-Aquitaine region :
+  <li><span lang="en">Representative of doctoral students on the laboratory council</span><span lang="fr">Représentant des doctorants au conseil de laboratoire</span></li>
+  <li><span lang="en">Organizer of the doctoral student seminar</span><span lang="fr">Organisateur du séminaire des doctorants</span></li>
+  <li><span lang="en">Organizer of doctoral student days for the Nouvelle-Aquitaine region :</span><span lang="fr">Organisateur des journées doctorales de la région Nouvelle-Aquitaine :</span>
     <ul>
-      <li><a href="https://federation-margaux.math.cnrs.fr/actions/journees-doctorales-de-la-federation-margaux-2025/" target="_blank">MARGAUX 2025 Federation Doctoral Days</a></li>
-      <li><a href="https://federation-margaux.math.cnrs.fr/actions/journees-doctorales-de-la-federation-margaux-2024/" target="_blank">MARGAUX 2024 Federation Doctoral Days</a></li>
+      <li><a href="https://federation-margaux.math.cnrs.fr/actions/journees-doctorales-de-la-federation-margaux-2025/" target="_blank"><span lang="en">MARGAUX 2025 Federation Doctoral Days</span><span lang="fr">Journées doctorales de la fédération MARGAUX 2025</span></a></li>
+      <li><a href="https://federation-margaux.math.cnrs.fr/actions/journees-doctorales-de-la-federation-margaux-2024/" target="_blank"><span lang="en">MARGAUX 2024 Federation Doctoral Days</span><span lang="fr">Journées doctorales de la fédération MARGAUX 2024</span></a></li>
     </ul>
   </li>
 </ul>
 
-<h2>Seminars and conferences</h2>
+<h2><span lang="en">Seminars and conferences</span><span lang="fr">Séminaires et conférences</span></h2>
 
 <p><strong>2026</strong></p>
 <ul>
-  <li>Seminar at ENS Rennes</li>
-  <li>Presentation at the Eighteenth International Conference — Jaca</li>
-  <li>Presentation at CANUM 2026</li>
-  <li>Presentation at SMAI-MODE 2026, in Nice</li>
+  <li><span lang="en">Seminar at ENS Rennes</span><span lang="fr">Séminaire à l'ENS Rennes</span></li>
+  <li><span lang="en">Presentation at the Eighteenth International Conference — Jaca</span><span lang="fr">Présentation à la dix-huitième conférence internationale — Jaca</span></li>
+  <li><span lang="en">Presentation at CANUM 2026</span><span lang="fr">Présentation à CANUM 2026</span></li>
+  <li><span lang="en">Presentation at SMAI-MODE 2026, in Nice</span><span lang="fr">Présentation à SMAI-MODE 2026, à Nice</span></li>
 </ul>
 
 <p><strong>2025</strong></p>
 <ul>
-  <li>Seminar in the Image, Optimization, and Probability team, in Bordeaux</li>
-  <li>Presentation at SMAI</li>
-  <li>Presentation at the symposium for doctoral students in the Nouvelle-Aquitaine region</li>
+  <li><span lang="en">Seminar in the Image, Optimization, and Probability team, in Bordeaux</span><span lang="fr">Séminaire de l'équipe Image, Optimisation et Probabilités, à Bordeaux</span></li>
+  <li><span lang="en">Presentation at SMAI</span><span lang="fr">Présentation à SMAI</span></li>
+  <li><span lang="en">Presentation at the symposium for doctoral students in the Nouvelle-Aquitaine region</span><span lang="fr">Présentation au colloque des doctorants de la région Nouvelle-Aquitaine</span></li>
 </ul>
 
 <p><strong>2024</strong></p>
 <ul>
-  <li>Presentation at the Seventeenth International Conference — Zaragoza–Pau</li>
+  <li><span lang="en">Presentation at the Seventeenth International Conference — Zaragoza–Pau</span><span lang="fr">Présentation à la dix-septième conférence internationale — Saragosse–Pau</span></li>
 </ul>
 
 <footer>
   © Nassim En-Nebbazi — Université de Pau et des Pays de l’Adour
 </footer>
-
-<script>
-  // Effet machine à écrire du sous-titre
-  const phrases = [
-    "Postdoctoral researcher in Mathematics",
-    "ENS Rennes / Inria Rennes"
-  ];
-
-  const el = document.getElementById('typed');
-
-  // Respecte les utilisateurs qui ont désactivé les animations
-  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let p = 0;                        // index de la phrase courante
-    let i = phrases[0].length;        // nombre de lettres affichées
-    let deleting = true;              // on part du texte déjà affiché : il s'efface d'abord
-
-    function tick() {
-      const full = phrases[p];
-      i += deleting ? -1 : 1;
-      el.textContent = full.slice(0, i);
-
-      let delay = deleting ? 40 : 80; // vitesse d'effacement / d'écriture (ms)
-
-      if (!deleting && i === full.length) {
-        delay = 2000;                 // pause quand la phrase est complète
-        deleting = true;
-      } else if (deleting && i === 0) {
-        deleting = false;
-        p = (p + 1) % phrases.length; // phrase suivante
-        delay = 400;                  // petite pause avant de réécrire
-      }
-      setTimeout(tick, delay);
-    }
-
-    setTimeout(tick, 2000);           // laisse le titre visible 2 s au chargement
-  }
-</script>
 
 </body>
 </html>
