@@ -124,13 +124,13 @@
   }
 
   .photo {
-    float: right;
-    width: 150px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 5px; /* laisse la place au sélecteur FR | EN au-dessus de la photo */
-    margin-right: 30px; /* décale la photo vers la gauche ; ajuste la valeur à ton goût */
-  }
+  float: right;
+  width: 120px;          /* un peu plus petite pour tenir au-dessus de la bande noire */
+  margin-left: 20px;
+  margin-bottom: 0;
+  margin-top: -5px;      /* remonte la photo ; descends vers 0 si elle touche le sélecteur FR | EN */
+  margin-right: 40px;    /* décalage vers la gauche */
+}
 
   @media (max-width: 600px) {
     body {
