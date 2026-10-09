@@ -1,57 +1,56 @@
-const phrases = {
-  en: [
-    "Postdoctoral researcher in Mathematics",
-    "ENS Rennes / Inria Rennes"
-  ],
-  fr: [
-    "Chercheur postdoctoral en mathématiques",
-    "ENS Rennes / Inria Rennes"
-  ]
-};
+(function () {
+  var phrases = {
+    en: ["Postdoctoral researcher in Mathematics", "ENS Rennes / Inria Rennes"],
+    fr: ["Chercheur postdoctoral en mathématiques", "ENS Rennes / Inria Rennes"]
+  };
 
-const el = document.getElementById('typed');
+  function start() {
+    var el = document.getElementById('typed');
+    if (!el) return;
 
-if (el) {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const getLang = () => (window.siteLang ? window.siteLang.get() : 'en');
-
-  let p = 0;                       // indice de la phrase en cours
-  let i = 0;                       // nombre de caractères affichés
-  let deleting = true;
-  let timer = null;
-
-  function tick() {
-    const full = phrases[getLang()][p];
-    i += deleting ? -1 : 1;
-    el.textContent = full.slice(0, i);
-
-    let delay = deleting ? 40 : 80;
-
-    if (!deleting && i === full.length) {
-      delay = 2000;                // pause quand la phrase est complète
-      deleting = true;
-    } else if (deleting && i === 0) {
-      deleting = false;
-      p = (p + 1) % phrases[getLang()].length;
-      delay = 400;
+    function lang() {
+      return (window.siteLang && window.siteLang.get()) === 'fr' ? 'fr' : 'en';
     }
-    timer = setTimeout(tick, delay);
+
+    var p = 0, i = 0, deleting = true, timer = null;
+
+    function tick() {
+      var full = phrases[lang()][p];
+      i += deleting ? -1 : 1;
+      if (i < 0) i = 0;
+      el.textContent = full.slice(0, i);
+
+      var delay = deleting ? 40 : 80;
+      if (!deleting && i >= full.length) {
+        delay = 2000;
+        deleting = true;
+      } else if (deleting && i === 0) {
+        deleting = false;
+        p = (p + 1) % phrases[lang()].length;
+        delay = 400;
+      }
+      timer = setTimeout(tick, delay);
+    }
+
+    function restart(delay) {
+      clearTimeout(timer);
+      var full = phrases[lang()][p];
+      el.textContent = full;
+      i = full.length;
+      deleting = true;
+      timer = setTimeout(tick, delay);
+    }
+
+    restart(2000);
+
+    if (window.siteLang) {
+      window.siteLang.onChange(function () { restart(1500); });
+    }
   }
 
-  // Affiche la phrase courante dans la langue active, puis relance l'animation
-  function restart(delay) {
-    clearTimeout(timer);
-    const full = phrases[getLang()][p];
-    el.textContent = full;
-    i = full.length;
-    deleting = true;
-    if (!reduced) timer = setTimeout(tick, delay);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
   }
-
-  restart(2000);
-
-  // Changement de langue (bouton FR/EN ou autre onglet) : on traduit tout de suite
-  if (window.siteLang) {
-    window.siteLang.onChange(() => restart(1200));
-  }
-}
+})();
